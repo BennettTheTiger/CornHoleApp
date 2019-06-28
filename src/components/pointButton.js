@@ -7,7 +7,7 @@ const PointButton = (props) =>{
     
     return(
         <div>
-            <button className="ptBtn">{name}</button>
+            <button className="ptBtn grpItem">{name}</button>
         </div>
     )
 }

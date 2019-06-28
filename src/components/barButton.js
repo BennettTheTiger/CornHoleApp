@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import '../styles/barButton.scss';
 
 const BarButton = (props) =>{
     const {name, handleClick} = props
     return(
-        <div>
-            <button onClick={handleClick}>{name}</button>
+        <div className="btnContainer">
+            <button className="btn" onClick={handleClick}>{name}</button>
         </div>
     )
 }

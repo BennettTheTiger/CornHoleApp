@@ -1,14 +1,15 @@
 import React from 'react';
-import ControlGroup from './components/controlGroup';
+import ScoreBoard from './components/scoreBoard';
+import TeamGroup from './components/teamGroup';
 import BarBottom from './components/barButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ControlGroup/>
+        <ScoreBoard/>
+        <TeamGroup/>
+        <TeamGroup/>
         <BarBottom/>
-      </header>
     </div>
   );
 }

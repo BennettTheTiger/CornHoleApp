@@ -1,0 +1,14 @@
+@import './corePallete.scss';
+
+.scoreBoard{
+    position: relative;
+    width: 100%;
+    background-color: $orange;
+}
+
+.teamContainer{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    color: $cream;
+}

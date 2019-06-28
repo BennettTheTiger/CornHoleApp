@@ -3,8 +3,15 @@
 .ctrlGroup {
     position: relative;
     background-color: $aqua;
-    width: 50%;
+    width: 100%;
+    min-height: 200px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;  
+    justify-content: center;
+}
+
+
+.grpItem{
+    top: 50px;
 }

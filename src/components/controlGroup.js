@@ -5,14 +5,12 @@ import '../styles/controlGroup.scss';
 
 class ControlGroup extends React.Component {
 
-
-
 render(){
     return(
         <div className="ctrlGroup">
-            <PointLabel pts={3}/>
-            <PointButton name="Up"/>
-            <PointButton name="Down"/>
+            <PointButton name="-"/>
+            <PointLabel  pts={0}/>
+            <PointButton name="+"/>
         </div>
     )
 }
