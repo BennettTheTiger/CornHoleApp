@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import '../styles/scoreBoard.scss';
 
 const ScoreBoard = (props) =>{
@@ -23,13 +24,6 @@ const ScoreBoard = (props) =>{
     )
 }
 
-ScoreBoard.defaultProps = {
-    team1name: 'Team 1',
-    team1score: 0,
-    team2name: 'Team 2',
-    team2score: 0, 
-}
-
 ScoreBoard.prototype = {
    team1name: PropTypes.string,
    team1score: PropTypes.number,
@@ -37,4 +31,14 @@ ScoreBoard.prototype = {
    team2score: PropTypes.number,  
 }
 
-export default ScoreBoard
+//gets data of redux store state
+const mapStateToProps = (state) => {
+    return{
+        team1name: state.team1name,
+        team1score : state.team1score,
+        team2name: state.team2name,
+        team2score: state.team2score,
+    }
+}
+
+export default connect(mapStateToProps)(ScoreBoard)
