@@ -5,27 +5,20 @@ import '../styles/teamGroup.scss';
 
 
 const TeamGroup = (props) =>{
-    console.log(props);
+    //console.log(props);
     return(
         <div className="teamGroup">
-            <ControlGroup onBoard/>
-            <ControlGroup/>
+            <ControlGroup onBoard isTeam1={props.team1}/>
+            <ControlGroup isTeam1={props.team1}/>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, passed) => {
     return {
-        team1name: state.team1name,
-        team2name: state.team2name
+        ...passed
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        printName: (id) =>{ dispatch({type:'SAY_HI', id:id})}
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TeamGroup)
+export default connect(mapStateToProps)(TeamGroup)
 

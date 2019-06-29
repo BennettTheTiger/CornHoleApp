@@ -1,4 +1,4 @@
-
+import {TEAM1ON,TEAM2ON, TEAM1IN, TEAM2IN} from '../actions'
 const initState = {
     bags: 4,
     round: 0,
@@ -17,6 +17,32 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action)=>{
+    console.log(action);
+    switch(action.type){
+        case TEAM1ON:
+            return {
+                ...state,
+                team1_on: action.num
+            }
+        case TEAM2ON:
+            return {
+                ...state,
+                team2_on: action.num
+            }
+        case TEAM1IN:
+            return {
+                ...state,
+                team1_in: action.num
+            }
+        case TEAM2IN:
+            return {
+                ...state,
+                team2_in: action.num
+            }
+        default:
+            console.log('Unknown Action');
+    }
+
     return state;
 }
 

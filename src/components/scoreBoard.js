@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import '../styles/scoreBoard.scss';
 
 const ScoreBoard = (props) =>{
-    console.log(props);
     const {
         team1name,
         team1score,

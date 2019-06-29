@@ -7,8 +7,8 @@ function App() {
   return (
       <div className="App">
           <ScoreBoard/>
-          <TeamGroup/>
-          <TeamGroup/>
+          <TeamGroup team1={true}/>
+          <TeamGroup team1={false}/>
           <BarBottom/>
       </div>
   );
