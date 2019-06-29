@@ -5,12 +5,12 @@ import BarBottom from './components/barButton';
 
 function App() {
   return (
-    <div className="App">
-        <ScoreBoard/>
-        <TeamGroup/>
-        <TeamGroup/>
-        <BarBottom/>
-    </div>
+      <div className="App">
+          <ScoreBoard/>
+          <TeamGroup/>
+          <TeamGroup/>
+          <BarBottom/>
+      </div>
   );
 }
 
