@@ -8,6 +8,8 @@ export const TEAM2ON = 'TEAM2ON';
 export const TEAM2IN = 'TEAM2IN';
 
 export const NEWROUND = 'NEWROUND'
+export const RESETGAME ='RESETGAME'
+export const ADDSCORE = 'ADDSCORE'
 
 //Action Creators
 
