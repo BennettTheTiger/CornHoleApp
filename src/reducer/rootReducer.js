@@ -1,4 +1,11 @@
-import {TEAM1ON,TEAM2ON, TEAM1IN, TEAM2IN} from '../actions'
+import {
+    TEAM1ON,
+    TEAM2ON, 
+    TEAM1IN, 
+    TEAM2IN, 
+    RESETGAME,
+    ADDSCORE
+} from '../actions'
 const initState = {
     bags: 4,
     round: 0,
@@ -14,6 +21,8 @@ const initState = {
     team2_in:0,
     team2_on:0,
     team2score:0,
+    inVal: 3,
+    onVal: 1
 }
 
 const rootReducer = (state = initState, action)=>{
@@ -38,6 +47,24 @@ const rootReducer = (state = initState, action)=>{
             return {
                 ...state,
                 team2_in: action.num
+            }
+        case ADDSCORE:
+            return {
+                ...state,
+                team1score: state.team1score += state.team1_in * state.inVal + state.team1_on * state.onVal,
+                team2score: state.team2score += state.team2_in * state.inVal + state.team2_on * state.onVal,
+                team1_in: 0,
+                team1_on: 0,
+                team2_in: 0,
+                team2_on: 0,
+                round: state.round++
+            }
+        case RESETGAME:
+            return{
+                ...state,
+                team1score: 0,
+                team2score: 0,
+                round: 0
             }
         default:
             console.log('Unknown Action');
