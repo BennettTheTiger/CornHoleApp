@@ -51,8 +51,13 @@ const rootReducer = (state = initState, action)=>{
         case ADDSCORE:
             return {
                 ...state,
-                team1score: 2,
-                team2score: 2
+                team1score: state.team1score += state.team1_in * state.inVal + state.team1_on * state.onVal,
+                team2score: state.team2score += state.team2_in * state.inVal + state.team2_on * state.onVal,
+                team1_in: 0,
+                team1_on: 0,
+                team2_in: 0,
+                team2_on: 0,
+                round: state.round++
             }
         case RESETGAME:
             return{
