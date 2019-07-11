@@ -12,38 +12,62 @@ import {
 import '../styles/controlGroup.scss';
 
 
+const validChange = (num) =>{
+    return num <= 4 && num >=  0 ? true: false;
+}
+
 const ControlGroup = (props) => {
-    console.log(props);
-    const team = 'test';
+    const {
+        ptsInBoard,
+        ptsOnBoard,
+        updateIn,
+        updateOn,
+        onBoard, 
+        limit
+    } = props;
     const addInBoard = () =>{
-        props.updateIn(props.ptsInBoard + 1);
+        const newVal = ptsInBoard + 1
+        if (validChange(newVal)){
+            updateIn(newVal);
+            if (newVal + ptsOnBoard >= limit){
+                updateOn(limit - newVal)
+            }
+        }
     }
     const removeInBoard = () =>{
-        props.updateIn(props.ptsInBoard - 1);
+        if (validChange(ptsInBoard - 1)){
+            updateIn(ptsInBoard - 1);
+        }
     }
     const addOnBoard = () =>{
-        console.log('addOnBoard',team)
-        props.updateOn(props.ptsOnBoard + 1);
+        const newVal = ptsOnBoard + 1
+        if (validChange(newVal)){
+            updateOn(newVal);
+            if (newVal + ptsInBoard >= limit){
+                updateIn(limit - newVal)
+            }
+        }
     }
     const removeOnBoard = () =>{
-        console.log('removeOnBoard',team)
-        props.updateOn(props.ptsOnBoard - 1);
+        if (validChange(ptsOnBoard - 1)){
+            updateOn(ptsOnBoard - 1);
+        }
     }
     return(
         <div>
             <div className="ctrlGroup">
                 <PointButton 
                     name="-" 
-                    changePoints={props.onBoard ? removeOnBoard : removeInBoard }
+                    changePoints={onBoard ? removeOnBoard : removeInBoard }
                 />
-                <PointLabel  pts={props.onBoard ? props.ptsOnBoard : props.ptsInBoard}/>
+                <PointLabel  pts={onBoard ? props.ptsOnBoard : props.ptsInBoard}/>
                 <PointButton 
                     name="+"
-                    changePoints={props.onBoard ? addOnBoard : addInBoard }
+                    changePoints={onBoard ? addOnBoard : addInBoard }
                 />
                 
             </div>
-            <p className="label">{props.onBoard ? 'On Board' : 'In Board'}</p>
+            <p className="label">{onBoard ? 'On Board' : 'In Board'}</p>
         </div>
         
     )
@@ -62,12 +86,14 @@ ControlGroup.defaultProps = {
 const mapStateToProps = (state, passed) => {
     if (passed.isTeam1){
         return {
+            limit: state.bags,
             ptsInBoard: state.team1_in,
             ptsOnBoard: state.team1_on,
             ...passed
         }
     }
     return{
+        limit: state.bags,
         ptsInBoard: state.team2_in,
         ptsOnBoard: state.team2_on,
         ...passed
