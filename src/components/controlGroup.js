@@ -84,18 +84,19 @@ ControlGroup.defaultProps = {
 }
 
 const mapStateToProps = (state, passed) => {
+    console.warn(state);
     if (passed.isTeam1){
         return {
-            limit: state.bags,
-            ptsInBoard: state.team1_in,
-            ptsOnBoard: state.team1_on,
+            limit: state.config.bags,
+            ptsInBoard: state.team1.bags_in,
+            ptsOnBoard: state.team1.bags_on,
             ...passed
         }
     }
     return{
-        limit: state.bags,
-        ptsInBoard: state.team2_in,
-        ptsOnBoard: state.team2_on,
+        limit: state.config.bags,
+        ptsInBoard: state.team2.bags_in,
+        ptsOnBoard: state.team2.bags_on,
         ...passed
     }
 }

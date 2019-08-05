@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ADDSCORE,  } from '../actions'
+import { addScoreAction } from '../actions'
 import PropTypes from 'prop-types';
 import '../styles/barButton.scss';
 
@@ -39,7 +39,7 @@ const mapStateToProps = (state, passed) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        submitScore: () => dispatch( {type:ADDSCORE}),
+        submitScore: () => dispatch(addScoreAction())
     }
 }
 

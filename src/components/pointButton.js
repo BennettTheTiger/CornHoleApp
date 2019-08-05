@@ -19,7 +19,7 @@ PointButton.prototype = {
 
 PointButton.defaultProps = {
     addBtn: false,
-    changePoints: () =>{console.log('change points clicked')}
+    changePoints: () =>{console.log('default change points clicked')}
 }
 
 export default PointButton

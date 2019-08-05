@@ -6,18 +6,17 @@ import '../styles/scoreBoard.scss';
 const ScoreBoard = (props) =>{
     const {
         team1name,
-        team1score,
         team2name,
-        team2score
+        scoreData
     } = props
     return(
         <div className="scoreBoard">
             <div className="teamContainer">
-                <h3>{team1score}</h3>
+                <h3>{scoreData.team1}</h3>
                 <p>{team1name}</p>
             </div>
             <div className="teamContainer">
-                <h3>{team2score}</h3>
+                <h3>{scoreData.team2}</h3>
                 <p>{team2name}</p>
             </div>
         </div>
@@ -26,18 +25,19 @@ const ScoreBoard = (props) =>{
 
 ScoreBoard.prototype = {
    team1name: PropTypes.string,
-   team1score: PropTypes.number,
+   scoreData: PropTypes.objectOf(PropTypes.shape({
+       team1: PropTypes.number,
+       team2: PropTypes.number
+   })),
    team2name: PropTypes.string,
-   team2score: PropTypes.number,  
 }
 
 //gets data of redux store state
 const mapStateToProps = (state) => {
     return{
-        team1name: state.team1name,
-        team1score : state.team1score,
-        team2name: state.team2name,
-        team2score: state.team2score,
+        scoreData: state.scoreData,
+        team2name: state.team2.name,
+        team1name: state.team1.name,
     }
 }
 

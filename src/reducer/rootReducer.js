@@ -6,48 +6,28 @@ import {
     RESETGAME,
     ADDSCORE
 } from '../actions'
-const initState = {
-    bags: 4,
-    round: 0,
-    teamsOf2: false,
-    ptsCancel:true,
-    winByTwo: true,
-    targetScore: 21,
-    team1name: 'Team 1' ,
-    team1_in:0,
-    team1_on:0,
-    team1score:0,
-    team2name: 'Team 2' ,
-    team2_in:0,
-    team2_on:0,
-    team2score:0,
-    inVal: 3,
-    onVal: 1
-}
+import update from 'immutability-helper';
+import { initState } from '../utils/initState'
 
 const rootReducer = (state = initState, action)=>{
     console.log(action);
     switch(action.type){
         case TEAM1ON:
-            return {
-                ...state,
-                team1_on: action.num
-            }
+            return update(state, {
+                team1: { bags_on : { $set : action.num}}
+            });
         case TEAM2ON:
-            return {
-                ...state,
-                team2_on: action.num
-            }
+            return update(state, {
+                team2: { bags_on : { $set : action.num}}
+            });
         case TEAM1IN:
-            return {
-                ...state,
-                team1_in: action.num
-            }
+            return update(state, {
+                team1: { bags_in : { $set : action.num}}
+            });
         case TEAM2IN:
-            return {
-                ...state,
-                team2_in: action.num
-            }
+            return update(state, {
+                team2: { bags_in : { $set : action.num}}
+            });
         case ADDSCORE:
             return {
                 ...state,
@@ -66,8 +46,11 @@ const rootReducer = (state = initState, action)=>{
                 team2score: 0,
                 round: 0
             }
+        case '@@INIT':
+            console.log('State initalized');
+            break
         default:
-            console.log('Unknown Action');
+            console.error('Unknown Action');
     }
 
     return state;

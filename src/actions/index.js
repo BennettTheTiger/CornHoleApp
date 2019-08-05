@@ -36,3 +36,22 @@ export function team2totalOn(num) {
 export function team2totalIn(num) {
     return { type: TEAM2IN, num }
 }
+
+//scoring logic
+export function addScoreAction() {
+    return (dispatch, getState) => {
+        const {
+            ptsCancel,
+            winByTwo,
+            targetScore,
+            inVal,
+            onVal,
+            team1_in,
+            team1_on,
+            team1score,
+            team2_in,
+            team2_on,
+            team2score,
+        } = getState();
+    }
+}
