@@ -67,7 +67,7 @@ const ControlGroup = (props) => {
                 />
                 
             </div>
-            <p className="label">{onBoard ? 'On Board' : 'In Board'}</p>
+            <p className="label">{onBoard ? 'On ' : 'In '} Board</p>
         </div>
         
     )
@@ -84,7 +84,6 @@ ControlGroup.defaultProps = {
 }
 
 const mapStateToProps = (state, passed) => {
-    console.warn(state);
     if (passed.isTeam1){
         return {
             limit: state.config.bags,

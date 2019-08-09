@@ -4,7 +4,8 @@ import {
     TEAM1IN, 
     TEAM2IN, 
     RESETGAME,
-    ADDSCORE
+    ADDSCORE,
+    NEWROUND
 } from '../actions'
 import update from 'immutability-helper';
 import { initState } from '../utils/initState'
@@ -29,16 +30,15 @@ const rootReducer = (state = initState, action)=>{
                 team2: { bags_in : { $set : action.num}}
             });
         case ADDSCORE:
-            return {
-                ...state,
-                team1score: state.team1score += state.team1_in * state.inVal + state.team1_on * state.onVal,
-                team2score: state.team2score += state.team2_in * state.inVal + state.team2_on * state.onVal,
-                team1_in: 0,
-                team1_on: 0,
-                team2_in: 0,
-                team2_on: 0,
-                round: state.round++
-            }
+            return update(state, {
+                scoreData: { $merge : action.addScore}
+            });
+        case NEWROUND:
+            return update(state, {
+                scoreData: {action: {$set: action.data.round}},
+                team1: {$merge: action.data.reset},
+                team2: {$merge: action.data.reset},
+            });
         case RESETGAME:
             return{
                 ...state,
