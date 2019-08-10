@@ -1,6 +1,6 @@
 import React from 'react';
 import ScoreBoard from './components/scoreBoard';
-import GameOptions from './components/GameOptions';
+import GameOptions from './components/GameOptions/GameOptions';
 import TeamGroup from './components/teamGroup';
 import BarBottom from './components/barButton';
 

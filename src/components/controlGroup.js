@@ -8,7 +8,7 @@ import {
     TEAM1IN,
     TEAM2ON,
     TEAM2IN
-} from '../actions';
+} from '../redux/types';
 import '../styles/controlGroup.scss';
 
 

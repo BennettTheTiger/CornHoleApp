@@ -5,10 +5,11 @@ import {
     TEAM2IN, 
     RESETGAME,
     ADDSCORE,
-    NEWROUND
-} from '../actions'
+    NEWROUND,
+    RESETSCORE
+} from '../types'
 import update from 'immutability-helper';
-import { initState } from '../utils/initState'
+import { initState } from '../../utils/initState'
 
 const rootReducer = (state = initState, action)=>{
     console.log(action);
@@ -31,21 +32,19 @@ const rootReducer = (state = initState, action)=>{
             });
         case ADDSCORE:
             return update(state, {
-                scoreData: { $merge : action.addScore}
+                scoreData: { $merge : action.addScore},
             });
         case NEWROUND:
             return update(state, {
-                scoreData: {action: {$set: action.data.round}},
+                scoreData: {round: {$set: action.data.round}},
                 team1: {$merge: action.data.reset},
                 team2: {$merge: action.data.reset},
             });
-        case RESETGAME:
-            return{
-                ...state,
-                team1score: 0,
-                team2score: 0,
-                round: 0
-            }
+        case RESETSCORE:
+            return update(state, {
+                scoreData : {$set: action.data}
+            });
+        
         case '@@INIT':
             console.log('State initalized');
             break

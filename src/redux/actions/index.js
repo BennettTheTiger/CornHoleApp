@@ -1,16 +1,13 @@
-//Action Types
-export const TEAM1SCORE = 'TEAM1SCORE';
-export const TEAM1ON = 'TEAM1ON';
-export const TEAM1IN = 'TEAM1IN';
-
-export const TEAM2SCORE = 'TEAM2SCORE';
-export const TEAM2ON = 'TEAM2ON';
-export const TEAM2IN = 'TEAM2IN';
-
-export const NEWROUND = 'NEWROUND'
-export const RESETGAME ='RESETGAME'
-export const ADDSCORE = 'ADDSCORE'
-
+import {
+    TEAM1SCORE,
+    TEAM1ON,
+    TEAM1IN,
+    TEAM2SCORE,
+    TEAM2ON,
+    TEAM2IN,
+    ADDSCORE,
+    NEWROUND
+} from '../types'
 //Action Creators
 
 export function addTeam1Score(newScore) {
@@ -50,6 +47,7 @@ export function addScoreAction() {
         const addScore = {
             team1: scoreData.team1,
             team2 : scoreData.team2,
+            history : scoreData.history
         }
 
         if(config.ptsCancel){
@@ -64,8 +62,13 @@ export function addScoreAction() {
             addScore.team2 += t2on + t2in;
         }
         else{
-
+            //TODO: ADD no cancel points logic
         }
+        //build history
+        addScore.history.push({
+            team1: addScore.team1, 
+            team2: addScore.team2
+        });
         dispatch({type: ADDSCORE, addScore})
         //reset action
         const data = {

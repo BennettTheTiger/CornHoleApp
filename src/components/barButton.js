@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addScoreAction } from '../actions'
+import { addScoreAction } from '../redux/actions'
 import PropTypes from 'prop-types';
 import '../styles/barButton.scss';
 

@@ -12,6 +12,11 @@ export const initState = {
         round: 0,
         team1:0,
         team2:0,
+        history:[
+            {
+                team1: 0, 
+                team2: 0
+            }]
     },
     team1: {
         name: 'Team 1',
@@ -22,5 +27,8 @@ export const initState = {
         name: 'Team 2',
         bags_in:0,
         bags_on:0,
+    },
+    ui:{
+        confirmPopup: false
     }
 }
