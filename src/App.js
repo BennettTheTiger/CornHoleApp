@@ -1,8 +1,8 @@
 import React from 'react';
-import ScoreBoard from './components/scoreBoard';
+import ScoreBoard from './components/Scoreboard/scoreBoard';
 import GameOptions from './components/GameOptions/GameOptions';
-import TeamGroup from './components/teamGroup';
-import BarBottom from './components/barButton';
+import TeamGroup from './components/TeamGroup/teamGroup';
+import BarBottom from './components/BarButton/barButton';
 
 function App() {
   return (

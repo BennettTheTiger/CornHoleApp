@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import '../styles/pointButton.scss';
+import './pointButton.scss';
 
 const PointButton = (props) =>{    
     return(

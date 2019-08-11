@@ -1,6 +1,6 @@
 import React from 'react'
-import PointLabel from './pointLabel';
-import PointButton from './pointButton';
+import PointLabel from './PointLabel/pointLabel';
+import PointButton from './PointButton/pointButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -8,8 +8,8 @@ import {
     TEAM1IN,
     TEAM2ON,
     TEAM2IN
-} from '../redux/types';
-import '../styles/controlGroup.scss';
+} from '../../../redux/types';
+import './controlGroup.scss';
 
 
 const validChange = (num) =>{

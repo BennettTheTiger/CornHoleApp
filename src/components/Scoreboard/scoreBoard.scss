@@ -1,14 +1,15 @@
-@import './corePallete.scss';
+@import '../../styles/corePallete.scss';
 
 .scoreBoard{
     position: relative;
     width: 100%;
     background-color: $orange;
+    display: flex;
+    text-align: center;
+    color: $cream
 }
 
 .teamContainer{
     display: inline-block;
     width: 50%;
-    text-align: center;
-    color: $cream;
 }
