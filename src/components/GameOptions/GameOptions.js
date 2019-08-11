@@ -11,7 +11,6 @@ const GameOptions = (props) => {
         noHistory
     } = props
 
-    console.warn('Has history', noHistory);
     return (
         <div className="container">
             <div className="option">

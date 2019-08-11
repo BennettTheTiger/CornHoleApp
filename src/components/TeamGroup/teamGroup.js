@@ -1,7 +1,7 @@
 import React from 'react';
-import ControlGroup from './controlGroup';
+import ControlGroup from './ControlGroup/controlGroup';
 import { connect } from 'react-redux';
-import '../styles/teamGroup.scss';
+import './teamGroup.scss';
 
 
 const TeamGroup = (props) =>{

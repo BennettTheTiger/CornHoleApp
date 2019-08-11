@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../styles/scoreBoard.scss';
+import './scoreBoard.scss';
 
 const ScoreBoard = (props) =>{
     const {
@@ -14,6 +14,10 @@ const ScoreBoard = (props) =>{
             <div className="teamContainer">
                 <h3>{scoreData.team1}</h3>
                 <p>{team1name}</p>
+            </div>
+            <div className="round">
+                <h4>{scoreData.round}</h4>
+                <p>Round</p>
             </div>
             <div className="teamContainer">
                 <h3>{scoreData.team2}</h3>

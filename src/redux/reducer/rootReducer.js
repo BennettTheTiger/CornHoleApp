@@ -3,15 +3,15 @@ import {
     TEAM2ON, 
     TEAM1IN, 
     TEAM2IN, 
-    RESETGAME,
     ADDSCORE,
     NEWROUND,
     RESETSCORE
 } from '../types'
 import update from 'immutability-helper';
 import { initState } from '../../utils/initState'
+const R = require('ramda');
 
-const rootReducer = (state = initState, action)=>{
+const rootReducer = (state = R.clone(initState), action)=>{
     console.log(action);
     switch(action.type){
         case TEAM1ON:
@@ -41,6 +41,7 @@ const rootReducer = (state = initState, action)=>{
                 team2: {$merge: action.data.reset},
             });
         case RESETSCORE:
+            console.warn(action.data);
             return update(state, {
                 scoreData : {$set: action.data}
             });
