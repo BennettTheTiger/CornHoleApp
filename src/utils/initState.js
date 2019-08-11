@@ -1,10 +1,10 @@
 export const initState = {
     config: {
         bags: 4,
-        teamsOf2: false,
         ptsCancel:true,
         winByTwo: true,
         targetScore: 21,
+        overReset: 16,
         inVal: 3,
         onVal: 1
     },
