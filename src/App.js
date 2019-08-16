@@ -9,8 +9,8 @@ function App() {
       <div className="App">
           <GameOptions />
           <ScoreBoard/>
-          <TeamGroup team1={true}/>
-          <TeamGroup team1={false}/>
+          <TeamGroup team1/>
+          <TeamGroup />
           <BarBottom/>
       </div>
   );

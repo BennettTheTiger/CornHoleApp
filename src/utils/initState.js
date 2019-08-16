@@ -1,13 +1,17 @@
+
+
+const basicConfig = {
+    bags: 4,
+    ptsCancel:true,
+    winByTwo: true,
+    targetScore: 21,
+    overReset: 16,
+    inVal: 3,
+    onVal: 1
+}
+
 export const initState = {
-    config: {
-        bags: 4,
-        ptsCancel:true,
-        winByTwo: true,
-        targetScore: 21,
-        overReset: 16,
-        inVal: 3,
-        onVal: 1
-    },
+    config: basicConfig,
     scoreData: {
         round: 0,
         team1:0,
@@ -29,6 +33,10 @@ export const initState = {
         bags_on:0,
     },
     ui:{
-        confirmPopup: false
+        confirmPopup: false,
+        config: { 
+            basicConfig, 
+            hasChanges: false
+        }
     }
-}
+};
