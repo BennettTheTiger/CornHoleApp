@@ -36,7 +36,6 @@ export const initState = {
         confirmPopup: false,
         config: { 
             basicConfig, 
-            hasChanges: false
         }
     }
 };

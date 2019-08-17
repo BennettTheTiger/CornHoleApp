@@ -3,20 +3,19 @@ import { connect } from 'react-redux'
 import NameEditor from './components/namEditor/nameEditor'
 import {
     editPtsCancel,
-    editTeam1Name,
+    editBagCount,
     editOnPts,
-    editInPts
+    editInPts,
+    editTargetPts
 } from './actions'
 const R = require('ramda');
 
 
 const SettingsContainer = (props) => {
 
-    console.warn(props);
     const { 
         ui, 
-        team1, 
-        team2 
+        config
     } = props;
 
     const settings = ui.config.basicConfig;
@@ -24,8 +23,8 @@ const SettingsContainer = (props) => {
     return(
         <div className="settings">
             <h2>Settings</h2>
-            <NameEditor placeholder={team1.name}/>
-            <NameEditor placeholder={team2.name}/>
+            <NameEditor team1/>
+            <NameEditor />
             <div className="game-varients">
 
             </div>
@@ -34,54 +33,55 @@ const SettingsContainer = (props) => {
                     id="bagNum"
                     type="number"
                     defaultValue={settings.bags}
-                    min={0}
+                    min={1}
                     max={10} 
+                    inputMode="numeric"
                     title="Number of bags per team" 
-                    onChange={() => console.log('changed')}
+                    onChange={(e) => props.changeBagCount(e.target.value)}
                 />
-                <label for="bagNum">{`Bags per team: ${settings.bags * 2} total bags.`}</label>
+                <label htmlFor="bagNum">{`Bags per team: ${settings.bags * 2} total bags.`}</label>
                 <input 
                     id="ptsCancel"
                     type="checkbox" 
                     title="Should points cancel?" 
-                    //checked={settings.ptsCancel}
-                    onChange={() => props.handlePtsCancel()}
+                    checked={settings.ptsCancel}
+                    onChange={(e) => props.handlePtsCancel(e.target.checked)}
                 />
-                <label for="ptsCancel">Same Points Cancel</label>
+                <label htmlFor="ptsCancel">Same Points Cancel</label>
                 <input 
                     id="targetScore"
                     type="number"
                     defaultValue={settings.targetScore}
-                    min={0}
+                    min={1}
                     max={9999} 
                     title="Minimum points to win." 
-                    checked={settings.ptsCancel}
-                    onChange={() => console.log('changed')}
+                    onChange={(e) => props.changeTargetPts(e.target.value)}
                 />
-                <label for="targetScore">Target Point Value</label>
+                <label htmlFor="targetScore">Target Point Value</label>
                 <input 
                     id="inVal"
                     type="number"
                     defaultValue={settings.inVal}
+                    inputMode="numeric"
                     min={1}
                     max={9999} 
                     title="Points for gettings bags in the hole." 
-                    checked={settings.ptsCancel}
-                    onChange={() => console.log('changed')}
+                    onChange={(e) => props.editPountsIn(e.target.value)}
                 />
-                <label for="inVal">Bags in the hole point value.</label>
+                <label htmlFor="inVal">Bags in the hole point value.</label>
                 <input 
                     id="onVal"
                     type="number"
                     defaultValue={settings.onVal}
+                    inputMode="numeric"
                     min={1}
                     max={9999} 
                     title="Bags on the hole point value." 
                     onChange={(e) => props.editPointsOn(e.target.value)}
                 />
-                <label for="onVal">Bags on the hole point value.</label>
+                <label htmlFor="onVal">Bags on the hole point value.</label>
             </div>
-            <button disabled>Save</button>
+            <button disabled={R.equals(config,ui.config.basicConfig)}>Save Changes</button>
         </div>
     )
 }
@@ -89,17 +89,16 @@ const SettingsContainer = (props) => {
 const mapStateToProps = (state, passed) => {
     //console.log(state.config, passed)
     return {
-        config: state.config,
         ui: state.ui,
-        team1: state.team1,
-        team2: state.team2
+        config: state.config
     }
 }
 
 const mapDispatchToProps = (dispatch, getState) => {
     return {
-        editTeam1Name: () => dispatch(editTeam1Name()),
-        handlePtsCancel: () =>  dispatch(editPtsCancel()),
+        changeTargetPts: (newTarget) => dispatch(editTargetPts(newTarget)),
+        changeBagCount: (newCount) => dispatch(editBagCount(newCount)),
+        handlePtsCancel: (val) =>  dispatch(editPtsCancel(val)),
         editPointsOn: (pts) => dispatch(editOnPts(pts)),
         editPountsIn: (pts) => dispatch(editInPts(pts))
     }

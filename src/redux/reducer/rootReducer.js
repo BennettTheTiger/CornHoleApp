@@ -48,8 +48,33 @@ const rootReducer = (state = R.clone(initState), action)=>{
             });
             //SETTING ACTIONS
         case TYPES.EDITPTSCANCEL:
-            return state;
-        
+            return update(state, {
+                ui: {config: { basicConfig: {ptsCancel : {$set: action.cancel }}}}
+            });
+        case TYPES.EDITBAGCOUNT:
+            return update(state, {
+                ui: {config: { basicConfig: {bags : {$set: action.bagCount }}}}
+            });
+        case TYPES.EDITTARGETPTS:
+            return update(state, {
+                ui: {config: { basicConfig: {targetScore : {$set: action.points }}}}
+            });
+        case TYPES.EDITINPTS:
+            return update(state, {
+                ui: {config: { basicConfig: {inVal : {$set: action.points }}}}
+            });
+        case TYPES.EDITONPTS:
+            return update(state, {
+                ui: {config: { basicConfig: {onVal : {$set: action.points }}}}
+            }); 
+        case TYPES.EDITTEAM1NAME:
+            return update(state, {
+                team1: {name: {$set: action.name}}
+            }); 
+        case TYPES.EDITTEAM2NAME:
+            return update(state, {
+                team2: {name: {$set: action.name}}
+            });     
         case '@@INIT':
             console.log('State initalized');
             break
