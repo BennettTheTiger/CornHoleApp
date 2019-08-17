@@ -7,6 +7,8 @@ import {
     NEWROUND,
     RESETSCORE
 } from '../types'
+
+import { TYPES } from '../../routes/Settings/actions/types';
 import update from 'immutability-helper';
 import { initState } from '../../utils/initState'
 const R = require('ramda');
@@ -41,10 +43,12 @@ const rootReducer = (state = R.clone(initState), action)=>{
                 team2: {$merge: action.data.reset},
             });
         case RESETSCORE:
-            console.warn(action.data);
             return update(state, {
                 scoreData : {$set: action.data}
             });
+            //SETTING ACTIONS
+        case TYPES.EDITPTSCANCEL:
+            return state;
         
         case '@@INIT':
             console.log('State initalized');

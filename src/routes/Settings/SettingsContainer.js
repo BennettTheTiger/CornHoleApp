@@ -1,13 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NameEditor from './components/namEditor/nameEditor'
+import {
+    editPtsCancel,
+    editTeam1Name,
+    editOnPts,
+    editInPts
+} from './actions'
 const R = require('ramda');
+
 
 const SettingsContainer = (props) => {
 
     console.warn(props);
     const { 
-        config, 
         ui, 
         team1, 
         team2 
@@ -38,8 +44,8 @@ const SettingsContainer = (props) => {
                     id="ptsCancel"
                     type="checkbox" 
                     title="Should points cancel?" 
-                    checked={settings.ptsCancel}
-                    onChange={() => console.log('changed')}
+                    //checked={settings.ptsCancel}
+                    onChange={() => props.handlePtsCancel()}
                 />
                 <label for="ptsCancel">Same Points Cancel</label>
                 <input 
@@ -71,8 +77,7 @@ const SettingsContainer = (props) => {
                     min={1}
                     max={9999} 
                     title="Bags on the hole point value." 
-                    checked={settings.ptsCancel}
-                    onChange={() => console.log('changed')}
+                    onChange={(e) => props.editPointsOn(e.target.value)}
                 />
                 <label for="onVal">Bags on the hole point value.</label>
             </div>
@@ -91,9 +96,12 @@ const mapStateToProps = (state, passed) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, getState) => {
     return {
-
+        editTeam1Name: () => dispatch(editTeam1Name()),
+        handlePtsCancel: () =>  dispatch(editPtsCancel()),
+        editPointsOn: (pts) => dispatch(editOnPts(pts)),
+        editPountsIn: (pts) => dispatch(editInPts(pts))
     }
 }
 

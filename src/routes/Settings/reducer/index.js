@@ -1,3 +1,0 @@
-import {TYPES} from './types';
-
-
