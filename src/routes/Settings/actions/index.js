@@ -1,4 +1,7 @@
 import {TYPES} from './types';
+import {RESETSCORE} from '../../../redux/types'
+import {initState} from '../../../utils/initState'
+const R = require('ramda');
 
 // action creators
 export const editPtsCancel = (val) => {
@@ -27,4 +30,17 @@ export const editInPts = (pts) => {
 
 export const editOnPts = (pts) => {
     return dispatch => dispatch({type: TYPES.EDITONPTS, points:pts});
+}
+
+export const saveEdits = () => {
+    return (dispatch, getState) => {
+        dispatch({type: TYPES.SAVEEDITS, newConfig:getState().ui.config.basicConfig})
+        dispatch({type:RESETSCORE, data: R.clone(initState.scoreData) })
+    }
+}
+
+export const discardEdits = () => {
+    return (dispatch, getState) => {
+        dispatch({type: TYPES.DISCARDEDITS, newConfig:getState().config})
+    } 
 }

@@ -74,7 +74,15 @@ const rootReducer = (state = R.clone(initState), action)=>{
         case TYPES.EDITTEAM2NAME:
             return update(state, {
                 team2: {name: {$set: action.name}}
-            });     
+            }); 
+        case TYPES.SAVEEDITS:
+            return update(state, {
+                config: {$merge: action.newConfig}
+            });
+        case TYPES.DISCARDEDITS:
+            return update(state, {
+                ui:{config: {basicConfig: {$merge: action.newConfig}}}
+            });        
         case '@@INIT':
             console.log('State initalized');
             break

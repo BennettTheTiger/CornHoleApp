@@ -14,7 +14,7 @@ const GameOptions = (props) => {
     return (
         <div className="container">
             <div className="option">
-                <button onClick={handleReset} title={resetTitle}>{resetTitle}</button>
+                <button onClick={handleReset} title={resetTitle} disabled={noHistory}>{resetTitle}</button>
             </div>
             <div className="option">
                 <button onClick={handleRevert} title={revertTitle} disabled={noHistory}>{revertTitle}</button>

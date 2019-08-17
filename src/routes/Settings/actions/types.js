@@ -5,6 +5,8 @@ export const EDITBAGCOUNT = 'EDITBAGCOUNT';
 export const EDITTARGETPTS = 'EDITTARGETPTS';
 export const EDITINPTS = 'EDITINPTS';
 export const EDITONPTS = 'EDITONPTS';
+export const SAVEEDITS = 'SAVEEDITS';
+export const DISCARDEDITS = 'DISCARDEDITS';
 
 export const TYPES = {
     EDITPTSCANCEL,
@@ -13,5 +15,7 @@ export const TYPES = {
     EDITBAGCOUNT,
     EDITTARGETPTS,
     EDITINPTS,
-    EDITONPTS
+    EDITONPTS,
+    SAVEEDITS,
+    DISCARDEDITS
 };

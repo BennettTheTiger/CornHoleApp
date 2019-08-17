@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NameEditor from './components/namEditor/nameEditor'
+import ChangePopup from './components/changesPopup'
 import {
     editPtsCancel,
     editBagCount,
     editOnPts,
     editInPts,
-    editTargetPts
+    editTargetPts,
+    saveEdits,
+    discardEdits
 } from './actions'
 const R = require('ramda');
 
@@ -19,6 +22,20 @@ const SettingsContainer = (props) => {
     } = props;
 
     const settings = ui.config.basicConfig;
+
+    const renderSavePopup = () => {
+        if(!R.equals(config,ui.config.basicConfig)){
+            //object with button actions passed as props to popup
+            const buttonActions = {
+                save: props.handleSaveEdits,
+                cancel: props.handleCancelEdits
+            }
+
+            return (
+                <ChangePopup buttonActions={buttonActions}/>
+            ); 
+        }
+    }
     
     return(
         <div className="settings">
@@ -81,7 +98,7 @@ const SettingsContainer = (props) => {
                 />
                 <label htmlFor="onVal">Bags on the hole point value.</label>
             </div>
-            <button disabled={R.equals(config,ui.config.basicConfig)}>Save Changes</button>
+            {renderSavePopup()}
         </div>
     )
 }
@@ -100,7 +117,9 @@ const mapDispatchToProps = (dispatch, getState) => {
         changeBagCount: (newCount) => dispatch(editBagCount(newCount)),
         handlePtsCancel: (val) =>  dispatch(editPtsCancel(val)),
         editPointsOn: (pts) => dispatch(editOnPts(pts)),
-        editPountsIn: (pts) => dispatch(editInPts(pts))
+        editPountsIn: (pts) => dispatch(editInPts(pts)),
+        handleSaveEdits: () => dispatch(saveEdits()),
+        handleCancelEdits: () => dispatch(discardEdits())
     }
 }
 
