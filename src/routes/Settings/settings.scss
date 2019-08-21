@@ -1,0 +1,22 @@
+.settings {
+
+    .title {
+        text-align: center;
+    }
+
+    .ctrl-item{
+        display: flex;
+        padding-left: 20px;
+
+        label{
+            font-weight: 400;
+            font-size: 0.8em;
+        }
+    }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+   opacity: 1;
+}
+
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import GameSetup from './varients/GameSetup'
-import Fouls from './varients/Fouls'
+import GameSetup from './rules/GameSetup'
+import Fouls from './rules/Fouls'
 
 const HowTo = () => {
 return (

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import { editTeam1Name, editTeam2Name} from '../../actions'
+import './style.scss';
 
 const NameEditer = (props) => {
 
@@ -21,13 +22,13 @@ const NameEditer = (props) => {
     }
     return (
         <div className="name-container">
-            <input 
+            <label>{`Team ${team1 ? '1' : '2'} name:`}</label>
+            <input
+                className="textbox" 
                 type="text"
                 defaultValue={getName()}
                 onChange={(e) => handleChange(e.target.value)}
-            >
-            </input>
-            <label>{`Team ${team1 ? '1' : '2'} name`}</label>
+            />
         </div>
     )
 }

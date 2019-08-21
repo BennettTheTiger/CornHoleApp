@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './App';
 import HowToPage from './routes/HowTo/Howto'
 import SettingsContainer from './routes/Settings/SettingsContainer'
+import Varients from './routes/Varients';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-
+import './styles/type.scss';
 import reducer from './redux/reducer/rootReducer'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -29,6 +30,9 @@ ReactDOM.render(<Provider store={store}>
             <Link to="/howto">How To Play</Link>
           </li>
           <li>
+            <Link to="/playStyles">Play Styles</Link>
+          </li>
+          <li>
             <Link to="/settings">Settings</Link>
           </li>
         </ul>
@@ -38,6 +42,7 @@ ReactDOM.render(<Provider store={store}>
         <Route exact path="/" component={App} />
         <Route path="/howto" component={HowToPage} />
         <Route path="/settings" component={SettingsContainer} />
+        <Route path="/playStyles" component={Varients} />
       </div>
     </Router>  
 </Provider>, document.getElementById('root'));
