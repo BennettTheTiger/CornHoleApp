@@ -10,6 +10,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import './styles/type.scss';
+import './styles/nav.scss';
+import {hideNav} from './utils/navMover';
 import reducer from './redux/reducer/rootReducer'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -22,22 +24,23 @@ const store = createStore(
 ReactDOM.render(<Provider store={store}>
   <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Game</Link>
-          </li>
-          <li>
-            <Link to="/howto">How To Play</Link>
-          </li>
-          <li>
-            <Link to="/playStyles">Play Styles</Link>
-          </li>
-          <li>
-            <Link to="/settings">Settings</Link>
-          </li>
-        </ul>
-
-        <hr />
+        <div className="nav">
+          <button id="navClose" onClick={() => hideNav()}>X</button>
+          <ul>
+            <li>
+              <Link to="/" className="menu-link">Game</Link>
+            </li>
+            <li>
+              <Link to="/howto" className="menu-link">How To Play</Link>
+            </li>
+            <li>
+              <Link to="/playStyles" className="menu-link">Play Styles</Link>
+            </li>
+            <li>
+              <Link to="/settings" className="menu-link">Settings</Link>
+            </li>
+          </ul>
+        </div>
 
         <Route exact path="/" component={App} />
         <Route path="/howto" component={HowToPage} />

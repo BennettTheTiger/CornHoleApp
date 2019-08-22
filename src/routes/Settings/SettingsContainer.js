@@ -45,7 +45,7 @@ const SettingsContainer = (props) => {
             <NameEditor />
             <div className="game-config">
                 <div className="ctrl-item">
-                    <label htmlFor="bagNum">{`Bags per team: ${settings.bags * 2} total bags.`}</label>
+                    <label htmlFor="bagNum">{`Bags per team: ${settings.bags * 2} total bags:`}</label>
                     <input 
                         id="bagNum"
                         type="number"
@@ -68,19 +68,19 @@ const SettingsContainer = (props) => {
                     />
                 </div>
                 <div className="ctrl-item">
-                    <label htmlFor="targetScore">Target Point Value</label>
+                    <label htmlFor="targetScore">Target Point Value:</label>
                     <input 
                         id="targetScore"
                         type="number"
                         defaultValue={settings.targetScore}
                         min={1}
                         max={9999} 
-                        title="Minimum points to win." 
+                        title="Minimum points to win:" 
                         onChange={(e) => props.changeTargetPts(e.target.value)}
                     />
                 </div>
                 <div className="ctrl-item">
-                    <label htmlFor="inVal">Bags in the hole point value.</label>
+                    <label htmlFor="inVal">Bags in the hole point value:</label>
                     <input 
                         id="inVal"
                         type="number"
@@ -88,12 +88,12 @@ const SettingsContainer = (props) => {
                         inputMode="numeric"
                         min={1}
                         max={9999} 
-                        title="Points for gettings bags in the hole." 
+                        title="Points for gettings bags in the hole:" 
                         onChange={(e) => props.editPountsIn(e.target.value)}
                     />
                 </div>
                 <div className="ctrl-item">
-                    <label htmlFor="onVal">Bags on the hole point value.</label>
+                    <label htmlFor="onVal">Bags on the hole point value:</label>
                     <input 
                         id="onVal"
                         type="number"
@@ -101,7 +101,7 @@ const SettingsContainer = (props) => {
                         inputMode="numeric"
                         min={1}
                         max={9999} 
-                        title="Bags on the hole point value." 
+                        title="Bags on the hole point value:" 
                         onChange={(e) => props.editPointsOn(e.target.value)}
                     />
                 </div>
