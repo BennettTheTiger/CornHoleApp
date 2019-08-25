@@ -13,3 +13,7 @@ export const ADDSCORE = 'ADDSCORE'
 
 export const RESETSCORE = 'RESETSCORE'
 export const REVERTSCORE = 'REVERTSCORE'
+
+// UI Types
+
+export const TOGGLE_NAV = 'TOGGLE_NAV'

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NameEditor from './components/namEditor/nameEditor'
+import MenuButton from '../../components/MenuButton'
 import ChangePopup from './components/changesPopup'
 import {
     editPtsCancel,
@@ -40,6 +41,9 @@ const SettingsContainer = (props) => {
     
     return(
         <div className="settings">
+            <div>
+                <MenuButton />
+            </div>
             <h2 className="title">Settings</h2>
             <NameEditor team1/>
             <NameEditor />

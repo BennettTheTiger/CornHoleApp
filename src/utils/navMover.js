@@ -1,38 +1,44 @@
 import anime from 'animejs/lib/anime.es.js';
 
-
 export function hideNav(){
-    anime({
+    const animation = anime.timeline({
+        easing: 'easeInOutQuart',
+        duration: 1250,
+    });
+    // fade out options
+    animation.add({
         targets: '.menu-link',
         opacity: 0,
         delay: anime.stagger(100),
         duration: 50,
-        easing: 'easeInOutQuart',
-      })
-
-    anime({
+    })
+    // move nav
+    animation.add({
         targets: '.nav',
         left: '-100vw',
-        delay: 400,
         duration: 1000,
-        easing: 'easeInOutQuart'
-    });  
+    })
 }
 
-export function showName(){
-    anime({
+export function showNav(){
+    const animation = anime.timeline({
+        easing: 'easeInOutQuart',
+        duration: 1050,
+    });
+    // move nav
+    animation.add({
+        targets: '.nav',
+        left: '0vw',
+        duration: 1000,
+    })
+    // fade out options
+    animation.add({
         targets: '.menu-link',
         opacity: 1,
         delay: anime.stagger(100),
         duration: 50,
-        easing: 'easeInOutQuart',
-      })
+        easing: 'easeInQuart'
+    })
 
-    anime({
-        targets: '.nav',
-        left: '0vw',
-        delay: 400,
-        duration: 1000,
-        easing: 'easeInOutQuart'
-    }); 
+    animation.play()
 }

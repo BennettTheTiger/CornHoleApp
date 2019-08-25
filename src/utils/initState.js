@@ -36,6 +36,7 @@ export const initState = {
         confirmPopup: false,
         config: { 
             basicConfig, 
-        }
+        },
+        menuOpen: false
     }
 };

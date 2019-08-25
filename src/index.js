@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import './styles/type.scss';
 import './styles/nav.scss';
-import {hideNav} from './utils/navMover';
+import MenuButton from './components/MenuButton';
 import reducer from './redux/reducer/rootReducer'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -25,19 +25,19 @@ ReactDOM.render(<Provider store={store}>
   <Router>
       <div>
         <div className="nav">
-          <button id="navClose" onClick={() => hideNav()}>X</button>
+          <MenuButton title="Close"/>
           <ul>
             <li>
-              <Link to="/" className="menu-link">Game</Link>
+              <Link to="/" className="menu-link"><MenuButton title="Game" navItem/></Link>
             </li>
             <li>
-              <Link to="/howto" className="menu-link">How To Play</Link>
+              <Link to="/howto" className="menu-link"><MenuButton title="How To Play" navItem/></Link>
             </li>
             <li>
-              <Link to="/playStyles" className="menu-link">Play Styles</Link>
+              <Link to="/playStyles" className="menu-link"><MenuButton title="Play Styles" navItem/></Link>
             </li>
             <li>
-              <Link to="/settings" className="menu-link">Settings</Link>
+              <Link to="/settings" className="menu-link"><MenuButton title="Settings" navItem/></Link>
             </li>
           </ul>
         </div>

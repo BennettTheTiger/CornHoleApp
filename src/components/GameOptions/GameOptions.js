@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { resetScore, revertScore } from './redux/actions'
+import MenuButton from '../MenuButton';
 const GameOptions = (props) => {
     const {
         handleReset,
@@ -19,6 +20,7 @@ const GameOptions = (props) => {
             <div className="option">
                 <button onClick={handleRevert} title={revertTitle} disabled={noHistory}>{revertTitle}</button>
             </div>
+            <MenuButton/>
         </div>
     )
 }

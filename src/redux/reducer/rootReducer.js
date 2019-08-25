@@ -5,7 +5,8 @@ import {
     TEAM2IN, 
     ADDSCORE,
     NEWROUND,
-    RESETSCORE
+    RESETSCORE,
+    TOGGLE_NAV
 } from '../types'
 
 import { TYPES } from '../../routes/Settings/actions/types';
@@ -82,7 +83,12 @@ const rootReducer = (state = R.clone(initState), action)=>{
         case TYPES.DISCARDEDITS:
             return update(state, {
                 ui:{config: {basicConfig: {$merge: action.newConfig}}}
-            });        
+            }); 
+        // UI  
+        case TOGGLE_NAV:
+            return update(state, {
+                ui: {menuOpen : {$set: action.isOpen}}
+            })     
         case '@@INIT':
             console.log('State initalized');
             break
