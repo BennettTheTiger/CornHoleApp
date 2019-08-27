@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './App';
 import HowToPage from './routes/HowTo/Howto'
+import LandingPage from './routes/Home'
 import SettingsContainer from './routes/Settings/SettingsContainer'
 import Varients from './routes/Varients';
 import * as serviceWorker from './serviceWorker';
@@ -28,7 +29,7 @@ ReactDOM.render(<Provider store={store}>
           <MenuButton title="Close"/>
           <ul>
             <li>
-              <Link to="/" className="menu-link"><MenuButton title="Game" navItem/></Link>
+              <Link to="/score" className="menu-link"><MenuButton title="Game" navItem/></Link>
             </li>
             <li>
               <Link to="/howto" className="menu-link"><MenuButton title="How To Play" navItem/></Link>
@@ -41,8 +42,8 @@ ReactDOM.render(<Provider store={store}>
             </li>
           </ul>
         </div>
-
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={LandingPage} /> 
+        <Route path="/score" component={App} />
         <Route path="/howto" component={HowToPage} />
         <Route path="/settings" component={SettingsContainer} />
         <Route path="/playStyles" component={Varients} />

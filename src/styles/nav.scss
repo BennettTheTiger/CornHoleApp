@@ -34,6 +34,7 @@
             text-decoration: none;
             cursor: pointer;
             transition: 0.2s ease-in-out;
+            opacity: 0; // fade in on first load
         }
 
         a:hover{
