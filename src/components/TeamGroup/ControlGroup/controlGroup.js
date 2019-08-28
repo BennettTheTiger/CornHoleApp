@@ -56,18 +56,19 @@ const ControlGroup = (props) => {
     return(
         <div>
             <div className="ctrlGroup">
-                <PointButton 
-                    name="-" 
-                    changePoints={onBoard ? removeOnBoard : removeInBoard }
-                />
                 <PointLabel  pts={onBoard ? props.ptsOnBoard : props.ptsInBoard}/>
-                <PointButton 
-                    name="+"
-                    changePoints={onBoard ? addOnBoard : addInBoard }
-                />
-                
+                <div className="buttons">
+                    <PointButton 
+                        name="-" 
+                        changePoints={onBoard ? removeOnBoard : removeInBoard }
+                    />
+                    <PointButton 
+                        name="+"
+                        changePoints={onBoard ? addOnBoard : addInBoard }
+                    />
+                </div>
+                <p className="label">{onBoard ? 'On ' : 'In '} Board</p>
             </div>
-            <p className="label">{onBoard ? 'On ' : 'In '} Board</p>
         </div>
         
     )

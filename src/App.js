@@ -3,6 +3,7 @@ import ScoreBoard from './components/Scoreboard/scoreBoard';
 import GameOptions from './components/GameOptions/GameOptions';
 import TeamGroup from './components/TeamGroup/teamGroup';
 import BarBottom from './components/BarButton/barButton';
+import './styles/gameStyles.scss';
 
 function App() {
   return (

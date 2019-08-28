@@ -5,7 +5,7 @@ import './pointButton.scss';
 const PointButton = (props) =>{    
     return(
         <div>
-            <button className="ptBtn grpItem" onClick={props.changePoints} >
+            <button className="ptBtn" onClick={props.changePoints} >
                 {props.name}
             </button>
         </div>

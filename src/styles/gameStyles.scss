@@ -1,0 +1,11 @@
+@import './corePallete.scss';
+
+.App{
+    background-color: $aqua;
+    color: $cream;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+}

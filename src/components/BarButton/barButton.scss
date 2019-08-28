@@ -1,6 +1,9 @@
 @import '../../styles/corePallete.scss';
 
-.btn{
-    width: 100%;
-    height: 50px;
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    justify-content: space-between;
+    margin: 10px;
 }
