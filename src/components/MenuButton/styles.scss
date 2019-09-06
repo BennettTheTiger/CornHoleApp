@@ -1,0 +1,28 @@
+@import '../../styles/corePallete.scss';
+
+.icon {
+    button {
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        border:none;
+    }
+}
+
+.option {
+    button {
+        background-color: transparent;
+        width: 40px;
+        border: none;
+
+        svg {
+            fill: $cream;
+        }
+
+        &:disabled{
+            svg {
+                fill: darken($cream, 40%);
+            }
+        }
+    }
+}

@@ -26,7 +26,7 @@ ReactDOM.render(<Provider store={store}>
   <Router>
       <div>
         <div className="nav">
-          <MenuButton title="Close"/>
+          <MenuButton/>
           <ul>
             <li>
               <Link to="/score" className="menu-link"><MenuButton title="Game" navItem/></Link>

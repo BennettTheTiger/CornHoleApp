@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { toggleNavAction } from './actions';
+import {ReactComponent as Hamburg} from '../../icons/hamburg.svg';
+import './styles.scss';
 
 const MenuButton = (props) => {
     const {
@@ -10,10 +12,16 @@ const MenuButton = (props) => {
         navItem
     } = props
 
+    const buildButtonClasses = () =>{
+        return `menu-btn ${title ? 'text' : 'icon'}`
+    }
+
     const renderAsButton = () => {
         return(
-            <div className="menu-btn">
-                <button onClick={()=>toggleNav(isMenuOpen)}>{title}</button>
+            <div className={buildButtonClasses()}>
+                <button onClick={()=>toggleNav(isMenuOpen)}>
+                    {title ? title : isMenuOpen ? 'Close' : <Hamburg/>}
+                </button> 
             </div>
         )
     }
@@ -32,7 +40,6 @@ const MenuButton = (props) => {
 MenuButton.defaultProps = {
     toggleNav: () => console.log('Toggle Nav Called with'),
     navItem : false,
-    title: 'Menu'
 }
 
 const mapStateToProps = (state, passed) => {

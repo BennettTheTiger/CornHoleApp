@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { resetScore, revertScore } from './redux/actions'
 import MenuButton from '../MenuButton';
+import {ReactComponent as Trash} from '../../icons/trash.svg';
+
 const GameOptions = (props) => {
     const {
         handleReset,
@@ -15,7 +17,12 @@ const GameOptions = (props) => {
     return (
         <div className="container">
             <div className="option">
-                <button onClick={handleReset} title={resetTitle} disabled={noHistory}>{resetTitle}</button>
+                <button 
+                    onClick={handleReset} 
+                    title={resetTitle} 
+                    disabled={noHistory}>
+                        <Trash/>
+                </button>
             </div>
             <div className="option">
                 <button onClick={handleRevert} title={revertTitle} disabled={noHistory}>{revertTitle}</button>

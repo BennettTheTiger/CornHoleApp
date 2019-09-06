@@ -6,13 +6,16 @@ import './landingStyles.scss'
 const LandingPage = () =>{
     return(
         <div className="landing-page">
-            <CornHoleSVG/>
+            <div className="svg-container">
+                <CornHoleSVG className="logo"/>
+            </div>
             <h2>Corn Hole Score</h2>
             <p>Focus on the game not the score! <span role="img" aria-label="cheers">🍻</span></p>
-            <MenuButton title="Lets Play!"/>
+            <div id="play-btn" >
+                <MenuButton title="Lets Play!"/>
+            </div>
         </div>
     )
-
 }
 
 export default LandingPage;
