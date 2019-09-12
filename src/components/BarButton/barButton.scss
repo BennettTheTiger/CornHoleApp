@@ -7,3 +7,20 @@
     justify-content: space-between;
     margin: 10px;
 }
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    button {
+        width: 100vw;
+        background-color: $orange;
+        color: $cream;
+        letter-spacing: 1px;
+        border: solid 1px $cream;
+        height: 40px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+}

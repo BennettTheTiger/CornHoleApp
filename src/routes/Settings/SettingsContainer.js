@@ -41,7 +41,7 @@ const SettingsContainer = (props) => {
     
     return(
         <div className="settings">
-            <div>
+            <div className="menu-container">
                 <MenuButton />
             </div>
             <h2 className="title">Settings</h2>
@@ -56,6 +56,7 @@ const SettingsContainer = (props) => {
                         defaultValue={settings.bags}
                         min={1}
                         max={10} 
+                        pattern="[0-9]"
                         inputMode="numeric"
                         title="Number of bags per team" 
                         onChange={(e) => props.changeBagCount(e.target.value)}
@@ -78,7 +79,8 @@ const SettingsContainer = (props) => {
                         type="number"
                         defaultValue={settings.targetScore}
                         min={1}
-                        max={9999} 
+                        max={9999}
+                        pattern="[0-9]" 
                         title="Minimum points to win:" 
                         onChange={(e) => props.changeTargetPts(e.target.value)}
                     />
@@ -91,7 +93,8 @@ const SettingsContainer = (props) => {
                         defaultValue={settings.inVal}
                         inputMode="numeric"
                         min={1}
-                        max={9999} 
+                        max={9999}
+                        pattern="[0-9]" 
                         title="Points for gettings bags in the hole:" 
                         onChange={(e) => props.editPountsIn(e.target.value)}
                     />
@@ -104,7 +107,8 @@ const SettingsContainer = (props) => {
                         defaultValue={settings.onVal}
                         inputMode="numeric"
                         min={1}
-                        max={9999} 
+                        max={9999}
+                        pattern="[0-9]" 
                         title="Bags on the hole point value:" 
                         onChange={(e) => props.editPointsOn(e.target.value)}
                     />

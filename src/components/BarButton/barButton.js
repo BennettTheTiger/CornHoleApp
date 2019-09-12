@@ -17,7 +17,7 @@ const BarButton = (props) =>{
    
     return(
         <div className="btnContainer">
-            <button className="btn" onClick={handleClick}>{name}</button>
+            <button className="bar-btn" onClick={handleClick}>{name}</button>
         </div>
     )
 }

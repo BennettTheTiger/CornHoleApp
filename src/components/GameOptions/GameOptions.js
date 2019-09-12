@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { resetScore, revertScore } from './redux/actions'
 import MenuButton from '../MenuButton';
 import {ReactComponent as Trash} from '../../icons/trash.svg';
+import {ReactComponent as Undo} from '../../icons/undo.svg'
 
 const GameOptions = (props) => {
     const {
@@ -25,7 +26,12 @@ const GameOptions = (props) => {
                 </button>
             </div>
             <div className="option">
-                <button onClick={handleRevert} title={revertTitle} disabled={noHistory}>{revertTitle}</button>
+                <button 
+                    onClick={handleRevert} 
+                    title={revertTitle} 
+                    disabled={noHistory}>
+                    <Undo/>
+                </button>
             </div>
             <MenuButton/>
         </div>
