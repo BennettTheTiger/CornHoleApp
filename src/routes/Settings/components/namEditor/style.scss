@@ -1,4 +1,4 @@
-
+@import '../../../../styles/corePallete.scss';
 .name-container {
     display: flex;
     padding: 10px;
@@ -15,6 +15,7 @@
         margin: 5px;
         text-overflow: ellipsis;
         background-color: transparent;
+        color: $oxford-blue;
     }
 
     label {

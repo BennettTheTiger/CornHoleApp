@@ -43,6 +43,7 @@ const SettingsContainer = (props) => {
         <div className="settings">
             <div className="menu-container">
                 <MenuButton />
+
             </div>
             <h2 className="title">Settings</h2>
             <NameEditor team1/>
@@ -57,6 +58,7 @@ const SettingsContainer = (props) => {
                         min={1}
                         max={10} 
                         pattern="[0-9]"
+                        maxlength={2}
                         inputMode="numeric"
                         title="Number of bags per team" 
                         onChange={(e) => props.changeBagCount(e.target.value)}

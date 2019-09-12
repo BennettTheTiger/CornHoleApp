@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 const ChangePopup = (props) => {
     const { save , cancel } = props.buttonActions
     return (
         <div className="popup-container">
-            <p>You have changed the settings. To apply your changes click save. NOTE: Saving your changes resets any game progress.</p>
+            <p>You have changed the settings. To apply your changes click save. <br/> 
+            <span className="warning">NOTE: Saving your changes resets any game progress.</span></p>
             <div className="btns">
                 <button
                     title="Cancel and discard your changes." 

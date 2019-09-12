@@ -1,0 +1,40 @@
+@import '../../../../styles/corePallete.scss';
+
+.popup-container{
+    background-color: $midnight-blue;
+    color: $cream;
+    padding: 20px;
+    position: absolute;
+    width: calc(100vw - 40px);
+    bottom: 0px;
+    p {
+        font-size: 0.55em;
+        text-align: center;
+    }
+
+    .warning {
+        line-height: 2;
+        font-style: italic;
+    }
+
+    [class*="-btn"]{
+        width: 50%;
+        margin: 10px;
+        background-color: $orange;
+        color: $cream;
+        text-transform: uppercase;
+        font-weight: bold;
+        height: 40px;
+        border-radius: 5px;
+    }
+}
+
+.btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cancel-btn {
+    background-color: $aqua;
+}

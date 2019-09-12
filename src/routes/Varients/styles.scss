@@ -1,0 +1,29 @@
+@import '../../styles/corePallete.scss';
+
+.varients-container{
+    
+    background-color: $tan;
+    top: 0;
+    left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: calc(100vw- 40px);
+    min-height: 100vh;
+    position: absolute;
+    color: $midnight-blue;
+    
+    .menu-container {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .menu-btn {
+        right: 10px;
+        top: 10px;
+        position: relative;
+            svg{
+                fill: $orange;
+            }
+        }
+    }
+
+}
