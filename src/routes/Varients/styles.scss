@@ -16,6 +16,8 @@
             background-color:darken($color: $tan, $amount: 10);
             padding: 5px;
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
 
             ul {
                 li {
@@ -23,6 +25,26 @@
                     padding-bottom: 5px;
                 }
             }
+
+            button {
+                background-color: $orange;
+                color: $cream;
+                width: 50vw;
+                max-width: 400px;
+                height: 40px;
+                text-transform: uppercase;
+                margin: 10px;
+                border: 1px solid $cream;
+                border-radius: 5px;
+                align-self: flex-end;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    background-color: darken($color: $orange, $amount: 10);
+                }
+            }
+
+            
         }
     }
     
