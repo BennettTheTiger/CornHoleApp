@@ -16,14 +16,21 @@
         text-overflow: ellipsis;
         background-color: transparent;
         color: $oxford-blue;
+
     }
+
+    input[type=text] {
+        color: $midnight-blue;
+    }
+
+    
 
     label {
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 400;
-        width: 160px;
-        font-size: 0.8em;
+        width: 175px;
+        font-size: 0.9em;
     }
 }

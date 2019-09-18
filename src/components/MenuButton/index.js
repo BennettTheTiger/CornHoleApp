@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { toggleNavAction } from './actions';
 import {ReactComponent as Hamburg} from '../../icons/hamburg.svg';
+import {ReactComponent as Close} from '../../icons/close.svg';
 import './styles.scss';
 
 const MenuButton = (props) => {
@@ -16,11 +17,15 @@ const MenuButton = (props) => {
         return `menu-btn ${title ? 'text' : 'icon'}`
     }
 
+    const addIcon = () => {
+        return isMenuOpen ? <Close/> : <Hamburg/>
+    }
+
     const renderAsButton = () => {
         return(
             <div className={buildButtonClasses()}>
                 <button onClick={()=>toggleNav(isMenuOpen)}>
-                    {title ? title : isMenuOpen ? 'Close' : <Hamburg/>}
+                    {title ? title : addIcon()}
                 </button> 
             </div>
         )

@@ -16,12 +16,12 @@
         border: none;
 
         svg {
-            fill: $cream;
+            fill: $orange;
         }
 
         &:disabled{
             svg {
-                fill: darken($cream, 40%);
+                fill: darken($cream, 20%);
             }
         }
     }

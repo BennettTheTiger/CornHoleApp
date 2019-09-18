@@ -2,32 +2,33 @@
 
 .settings {
 
-    background-color: $cream;
+    background-color: $tan;
     min-height: 100vh;
     width: 100vw;
     top: 0;
     left: 0px;
     position: absolute;
-    color: $aqua;
+    color: $midnight-blue;
 
     .title {
         text-align: center;
         letter-spacing: 1px;
+        margin: 0;
     }
 
     .ctrl-item{
         display: flex;
-        padding-left: 10px;
+        padding: 5px;
         margin: 5px;
 
         label{
             font-weight: 400;
-            font-size: 0.8em;
+            font-size: .9em;
             display: contents;
         }
 
         input {
-            color: $oxford-blue;
+            color: $midnight-blue;
         }
     }
 

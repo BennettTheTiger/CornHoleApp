@@ -22,33 +22,35 @@ const store = createStore(
   composeEnhancer(applyMiddleware(thunk)),
 );
 
-ReactDOM.render(<Provider store={store}>
-  <Router>
-      <div>
-        <div className="nav">
-          <MenuButton/>
-          <ul>
-            <li>
-              <Link to="/score" className="menu-link"><MenuButton title="Game" navItem/></Link>
-            </li>
-            <li>
-              <Link to="/howto" className="menu-link"><MenuButton title="How To Play" navItem/></Link>
-            </li>
-            <li>
-              <Link to="/playStyles" className="menu-link"><MenuButton title="Play Styles" navItem/></Link>
-            </li>
-            <li>
-              <Link to="/settings" className="menu-link"><MenuButton title="Settings" navItem/></Link>
-            </li>
-          </ul>
+
+ReactDOM.render(
+<Provider store={store}>
+    <Router>
+        <div>
+          <div className="nav">
+            <MenuButton/>
+            <ul>
+              <li>
+                <Link to="/score" className="menu-link"><MenuButton title="Game" navItem/></Link>
+              </li>
+              <li>
+                <Link to="/howto" className="menu-link"><MenuButton title="How To Play" navItem/></Link>
+              </li>
+              <li>
+                <Link to="/playStyles" className="menu-link"><MenuButton title="Play Styles" navItem/></Link>
+              </li>
+              <li>
+                <Link to="/settings" className="menu-link"><MenuButton title="Settings" navItem/></Link>
+              </li>
+            </ul>
+          </div>
+          <Route exact path="/" component={LandingPage} /> 
+          <Route path="/score" component={App} />
+          <Route path="/howto" component={HowToPage} />
+          <Route path="/settings" component={SettingsContainer} />
+          <Route path="/playStyles" component={Varients} />
         </div>
-        <Route exact path="/" component={LandingPage} /> 
-        <Route path="/score" component={App} />
-        <Route path="/howto" component={HowToPage} />
-        <Route path="/settings" component={SettingsContainer} />
-        <Route path="/playStyles" component={Varients} />
-      </div>
-    </Router>  
+      </Router>  
 </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

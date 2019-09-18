@@ -3,7 +3,7 @@
 .scoreBoard{
     position: relative;
     width: 100%;
-    background-color: $midnight-blue;
+    background-color: $orange;
     display: flex;
     text-align: center;
     color: $cream
@@ -12,4 +12,7 @@
 .teamContainer{
     display: inline-block;
     width: 50%;
+    h3{
+        color: $cream;
+    }
 }
